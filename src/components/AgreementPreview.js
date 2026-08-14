@@ -76,13 +76,12 @@ export default function AgreementPreview({ data, onBack, onEdit }) {
           This contract is for photography/videography services to be provided by {STUDIO.name}, the photographer/videographer, for the event of the above-named client scheduled for:
         </P>
 
-        <table className="w-full text-[11px] text-slate-600 border-collapse mt-3 mb-4">
+        <table className="w-full text-[11px] text-slate-600 border-collapse mt-3">
           <thead>
             <tr className="text-left border-b border-slate-200">
               <th className="py-2 pr-2 font-black uppercase tracking-wider text-[10px]">Date</th>
               <th className="py-2 pr-2 font-black uppercase tracking-wider text-[10px]">Time</th>
               <th className="py-2 pr-2 font-black uppercase tracking-wider text-[10px]">Services</th>
-              <th className="py-2 pr-2 font-black uppercase tracking-wider text-[10px]">Venue</th>
             </tr>
           </thead>
           <tbody>
@@ -91,11 +90,23 @@ export default function AgreementPreview({ data, onBack, onEdit }) {
                 <td className="py-2 pr-2">{d.date}</td>
                 <td className="py-2 pr-2">{d.time}</td>
                 <td className="py-2 pr-2">{[d.photo && 'Photo', d.video && 'Video'].filter(Boolean).join(' + ')}</td>
-                <td className="py-2 pr-2 whitespace-pre-line">{d.venue}</td>
               </tr>
             ))}
           </tbody>
         </table>
+
+        <div className="mt-3 mb-4 space-y-3">
+          {data.eventDays.map((d, i) => (
+            <div key={d.id} style={{ breakInside: 'avoid' }}>
+              <p className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
+                Venue{data.eventDays.length > 1 ? ` — ${d.date || `Day ${i + 1}`}` : ''}
+              </p>
+              <p className="text-[11.5px] text-slate-700 leading-[1.7] whitespace-pre-line border border-slate-100 bg-slate-50 rounded-xl px-4 py-3">
+                {d.venue || '—'}
+              </p>
+            </div>
+          ))}
+        </div>
 
         <P>{data.deliveryTimeline}</P>
 
