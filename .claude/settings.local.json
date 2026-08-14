@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find \"I:/new-wedding-quote-app/tailwind-react-app\" -maxdepth 3 -not -path \"*/node_modules/*\" -not -path \"*/.git/*\" 2>&1)",
+      "Bash(echo \"--- package.json ---\"; cat \"I:/new-wedding-quote-app/tailwind-react-app/package.json\" *)"
+    ]
+  }
+}
