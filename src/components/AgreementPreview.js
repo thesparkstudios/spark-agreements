@@ -91,7 +91,7 @@ export default function AgreementPreview({ data, onBack, onEdit }) {
                 <td className="py-2 pr-2">{d.date}</td>
                 <td className="py-2 pr-2">{d.time}</td>
                 <td className="py-2 pr-2">{[d.photo && 'Photo', d.video && 'Video'].filter(Boolean).join(' + ')}</td>
-                <td className="py-2 pr-2">{d.venue}</td>
+                <td className="py-2 pr-2 whitespace-pre-line">{d.venue}</td>
               </tr>
             ))}
           </tbody>

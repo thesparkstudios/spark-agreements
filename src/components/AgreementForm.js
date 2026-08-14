@@ -105,9 +105,17 @@ export default function AgreementForm({ data, setData, onSave, onPreview, onCanc
                 <Field label="Time">
                   <input className={inputCls} placeholder="4 hrs" value={day.time} onChange={(e) => updateDay(day.id, { time: e.target.value })} />
                 </Field>
-                <Field label="Venue">
-                  <input className={inputCls} value={day.venue} onChange={(e) => updateDay(day.id, { venue: e.target.value })} />
-                </Field>
+                <div className="col-span-2">
+                  <Field label="Venue">
+                    <textarea
+                      className={inputCls}
+                      rows={2}
+                      placeholder="Venue name and address"
+                      value={day.venue}
+                      onChange={(e) => updateDay(day.id, { venue: e.target.value })}
+                    />
+                  </Field>
+                </div>
                 <div className="flex items-end gap-4 pb-1">
                   <label className="flex items-center gap-2 text-sm">
                     <input type="checkbox" checked={day.photo} onChange={(e) => updateDay(day.id, { photo: e.target.checked })} /> Photo
